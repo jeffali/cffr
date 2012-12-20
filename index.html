@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Syntaxe CFEngine 3.4.0 : Attributs des promesses : Traduction en français des promesses de cfengine 3.4" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Syntaxe CFEngine 3.4.0 : Attributs des promesses</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jeffali/cffr">View on GitHub</a>
+
+          <h1 id="project_title">Syntaxe CFEngine 3.4.0 : Attributs des promesses</h1>
+          <h2 id="project_tagline">Traduction en français des promesses de cfengine 3.4</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jeffali/cffr/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jeffali/cffr/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>Syntaxe CFEngine 3.4.0 : Attributs des promesses</h2>
+
+<p><strong>Basé sur les travaux de mark Burgess et co. Compilé par Aleksey Tsalolikhin, le 1er décembre 2012. Traduit en français par Hichame Jeffali.</strong></p>
+
+<p>CFEngine est conçu pour être complet et pour permettre de modéliser tous les aspects possibles d'une configuration système. Il y a 478 attributs de promesse uniques dans CFEngine 3.4.0 pour vous aider à y arriver.</p>
+
+<p>Ce qui suit est un listing détaillé, tiré du manuel de référence, de tous les attributs de promesse disponibles dans CFEngine 3.4.0, avec le synopsis pour chaque attribut. Pour plus de détail, veuiller consulter le guide de syntaxe ou le manuel de référence.</p>
+
+<p>Fort heureusement, CFEngine est conçu aussi pour affronter les défis de la gestion de connaissance (Knowledge Management) tout en résumant et masquant les détails bas-niveau du système à modéliser.</p>
+
+<div>
+<h2>Attributs de contrôle pour tout type de composant</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>bundlesequence</strong></p>
+<p>Liste des bundles de promesse à vérifier dans l'ordre</p>
+ <p><strong>goal_patterns</strong></p>
+<p>La liste des expressions régulières qui correspondent aux sujets de promesse et thèmes considérés comme étant des buts organisationnels</p>
+ <p><strong>ignore_missing_bundles</strong></p>
+<p>Si un bundle de bundlesequence est absent, ignorer et continuer</p>
+ <p><strong>ignore_missing_inputs</strong></p>
+<p>Si un fichier d'entrée est absent, ignorer et continuer</p>
+ <p><strong>inputs</strong></p>
+<p>Liste des fichiers additionnels pour analyser la syntaxe des promesses</p>
+ <p><strong>version</strong></p>
+<p>Scalaire chaîne, version de la configuration présente</p>
+ <p><strong>lastseenexpireafter</strong></p>
+<p>Nombre de minutes après lesquelles les entrées déjà pris en compte sont supprimées</p>
+ <p><strong>output_prefix</strong></p>
+<p>La chaîne préfixe pour la sortie standard</p>
+ <p><strong>domain</strong></p>
+<p>Spécifie le nom de domaine pour la machine présente</p>
+ <p><strong>require_comments</strong></p>
+<p>Alerter des promesses qui n'ont pas de commentaires de documentation</p>
+ <p><strong>host_licenses_paid</strong></p>
+<p>Le nombre de licences que vous avez payé pour activer cette valeur (mention légale pour les licences commerciales)</p>
+ <p><strong>site_classes</strong></p>
+<p>La liste des classes représentant les zones géographiques de machines. Ces classes doivent être définies quelque part dans la configuration des promesses de type classes</p>
+ <p><strong>syslog_host</strong></p>
+<p>Nom et adresse de la machine auquelle les messages syslog doivent être adressés directement par UDP</p>
+ <p><strong>syslog_port</strong></p>
+<p>Le numéro de port du service syslog UDP</p>
+ <p><strong>fips_mode</strong></p>
+<p>Activer le mode de restrictions plein FIPS</p>
+</div></div>
+</div><div>
+<h2>Attributs de contrôle de l'agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>abortclasses</strong></p>
+<p>Une liste de classes qui si définies mènent à l'arrêt de cf-agent</p>
+ <p><strong>abortbundleclasses</strong></p>
+<p>Une liste de classes qui si définies mènent à l'arrêt du bundle courant</p>
+ <p><strong>addclasses</strong></p>
+<p>Une liste de classes qui doivent être toujours définies dans le contexte courant</p>
+ <p><strong>agentaccess1</strong></p>
+<p>Une liste de noms d'utilisateurs pouvant exécuter cf-agent</p>
+ <p><strong>agentfacility</strong></p>
+<p>La facilité syslog pour cf-agent</p>
+ <p><strong>allclassesreport</strong></p>
+<p>Génerer le rapport allclasses.txt</p>
+ <p><strong>alwaysvalidate</strong></p>
+<p>Indicateur true/false pour déterminer si les configurations vont être toujours vérifiées avant leur exécution, ou seulement après les mises-à-jours</p>
+ <p><strong>auditing</strong></p>
+<p>Indicateur true/false pour activer la trace d'audit de cf-agent</p>
+ <p><strong>binarypaddingchar</strong></p>
+<p>Caractère utilisé pour créer des espaces vides de remplacements inégaux au cours de l'édition binaire</p>
+ <p><strong>bindtointerface</strong></p>
+<p>Utiliser cette interface pour les connexions sortantes</p>
+ <p><strong>hashupdates</strong></p>
+<p>Indicateur true/false pour indiquer si les codes de hachage stockés sont mis-à-jour après un changement détecté dans la source</p>
+ <p><strong>childlibpath</strong></p>
+<p>Le chemin LD_LIBRARY_PATH pour les processus fils</p>
+ <p><strong>checksum_alert_time</strong></p>
+<p>Le temps de persistence pour la classe checksum_alert</p>
+ <p><strong>defaultcopytype</strong></p>
+<p>Les ctime ou mtime sont différents</p>
+ <p><strong>dryrun</strong></p>
+<p>Mode bruyant et sans action de modification</p>
+ <p><strong>editbinaryfilesize</strong></p>
+<p>Entier de la limite de taille maximale du fichier binaire à éditer</p>
+ <p><strong>editfilesize</strong></p>
+<p>Entier de la limite de taille maximale du fichier texte à éditer</p>
+ <p><strong>environment</strong></p>
+<p>Liste des variables d'environnement à hériter par les fils</p>
+ <p><strong>exclamation</strong></p>
+<p>Indicateur true/false pour imprimer les points d'exclamation au cours des alertes de sécurité</p>
+ <p><strong>expireafter</strong></p>
+<p>Valeur globale par défaut pour la durée d'expiration avant l'interruption de réparation des promesses en cours</p>
+ <p><strong>files_single_copy</strong></p>
+<p>Liste des noms de fichier à observer pour les conflits de sources multiples</p>
+ <p><strong>files_auto_define</strong></p>
+<p>Liste de noms de fichier pour la définition de classes une fois copiés</p>
+ <p><strong>hostnamekeys</strong></p>
+<p>Indicateur true/false pour labelliser les ppkeys par nom de machine et non par adresse IP</p>
+ <p><strong>ifelapsed</strong></p>
+<p>Valeur globale par défaut pour la durée d'expiration avant la re-vérification d'une promesse</p>
+ <p><strong>inform</strong></p>
+<p>Indicateur true/false pour renseigner le niveau inform par défaut</p>
+ <p><strong>intermittency</strong></p>
+<p>Cette option est maintenant obsolète. Elle est là pour raison de compatibilité ascendante.</p>
+ <p><strong>max_children</strong></p>
+<p>Nombre maximum de tâches de fond qui peuvent être lancées en parallèle</p>
+ <p><strong>maxconnections</strong></p>
+<p>Nombre maximal de connexions sortantes vers cf-serverd</p>
+ <p><strong>mountfilesystems</strong></p>
+<p>Indicateur true/false pour monter les systèmes de fichiers promis</p>
+ <p><strong>nonalphanumfiles</strong></p>
+<p>Indicateur true/false pour alerter des fichiers sans contenu alphanumérique</p>
+ <p><strong>repchar</strong></p>
+<p>Caractère utilisé pour canoniser les noms de chemins dans le dépôt de fichier</p>
+ <p><strong>refresh_processes</strong></p>
+<p>Recharger la table des processus avant la vérification des bundles nommés dans cette liste (évaluation tardive)</p>
+ <p><strong>default_repository</strong></p>
+<p>Chemin vers le dépôt de fichiers par défaut</p>
+ <p><strong>secureinput</strong></p>
+<p>Indicateur true/false pour vérifier si les fichiers en entrée sont modifiables par des utilisateurs non-autorisés</p>
+ <p><strong>sensiblecount</strong></p>
+<p>Nombre minimal de fichiers autorisé dans un système de fichier une fois monté</p>
+ <p><strong>sensiblesize</strong></p>
+<p>Nombre d'octets minimal autorisé dans un système de fichier une fois monté</p>
+ <p><strong>skipidentify</strong></p>
+<p>Ne pas envoyer l'IP/nom pendant la connexion vers un serveur si la résolution d'adresse ne marche pas</p>
+ <p><strong>suspiciousnames</strong></p>
+<p>Liste des noms générant des alertes si trouvés pendant une recherche de fichiers</p>
+ <p><strong>syslog</strong></p>
+<p>Indicateur true/false de redirection vers syslog au niveau "inform"</p>
+ <p><strong>track_value</strong></p>
+<p>Indicateur true/false pour traquer l'évaluation des promesses</p>
+ <p><strong>timezone</strong></p>
+<p>Liste des zones horaires permises sur la machine en cours</p>
+ <p><strong>default_timeout</strong></p>
+<p>Durée d'expiration de tentative de connexion réseau</p>
+ <p><strong>verbose</strong></p>
+<p>Indicateur true/false pour une sortie standard plus bruyante</p>
+</div></div>
+</div><div>
+<h2>Attributs de contrôle du serveur</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>allowallconnects</strong></p>
+<p>Liste des adresses IP et machines qui peuvent initier plus d'une connexion vers le port du serveur</p>
+ <p><strong>allowconnects</strong></p>
+<p>Liste des adresses IP et machines qui peuvent se connecter au port du serveur</p>
+ <p><strong>allowusers</strong></p>
+<p>Liste des utilisateurs autorisés à excécuter des requêtes depuis ce serveur</p>
+ <p><strong>auditing</strong></p>
+<p>Indicateur true/false d'activation de l'audit des connexions serveur</p>
+ <p><strong>bindtointerface</strong></p>
+<p>IP de l'interface sur laquelle le serveur doit écouter sur les machines multi-interfaces</p>
+ <p><strong>cfruncommand</strong></p>
+<p>Chemin vers la commande cf-agent ou cf-execd pour l'exécution à distance</p>
+ <p><strong>call_collect_interval</strong></p>
+<p>L'intervalle en minutes entre les différentes collectes des appels vers le hub de politique offrant un tunnel de collection de rapports (version entreprise)</p>
+ <p><strong>collect_window</strong></p>
+<p>La durée en seconde pendant laquelle un tunnel de collecte/appel peut rester ouvert aux tentatives d'un hub pour transférer un rapport avant qu'il soit fermé (version entreprise)</p>
+ <p><strong>denybadclocks</strong></p>
+<p>Indicateur true/false pour accepter des connexions depuis des machines ayant des sources de temps non synchronisées</p>
+ <p><strong>denyconnects</strong></p>
+<p>Liste des IPs ou machines qui ne peuvent pas se connecter au port du serveur</p>
+ <p><strong>dynamicaddresses</strong></p>
+<p>Liste des IPs ou machines qui peuvent changer d'IPs ou de noms</p>
+ <p><strong>hostnamekeys</strong></p>
+<p>Indicateur true/false pour stocker les clefs après résolution des adresses IP en noms de machine</p>
+ <p><strong>keycacheTTL</strong></p>
+<p>Nombre maximal d'heures pour retenir les clefs publiques dans le cache</p>
+ <p><strong>logallconnections</strong></p>
+<p>Indicateur true/false pour tracer toutes les nouvelles connexions vers syslog</p>
+ <p><strong>logencryptedtransfers</strong></p>
+<p>Indicateur true/false pour tracer tous les transferts réussis et devant être chiffrés</p>
+ <p><strong>maxconnections</strong></p>
+<p>Maximum de nombre de connexions pouvant être acceptées par cf-serverd</p>
+ <p><strong>port</strong></p>
+<p>Port par défaut pour le serveur cfengine</p>
+ <p><strong>serverfacility</strong></p>
+<p>Option menu du niveau de facilité syslog</p>
+ <p><strong>skipverify</strong></p>
+<p>Liste des IPs ou machines vers lesquelles nous n'attendons pas de résolution DNS et ne pouvant être vérifiés</p>
+ <p><strong>trustkeysfrom</strong></p>
+<p>Liste des IPs depuis lesquelles nous acceptons les clefs publiques de confiance</p>
+</div></div>
+</div><div>
+<h2>Attributs de contrôle du moniteur</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>forgetrate</strong></p>
+<p>Fraction décimale [0,1] pesant les nouvelles valeurs par rapport aux anciennes après calcul de moyenne 2d</p>
+ <p><strong>monitorfacility</strong></p>
+<p>Option menu déterminant la facilité syslog</p>
+ <p><strong>histograms</strong></p>
+<p>Obsolète. Laissée pour compatibilité ascendante.</p>
+ <p><strong>tcpdump</strong></p>
+<p>Indictauer true/false pour l'utilisation de tcpdump si présent</p>
+ <p><strong>tcpdumpcommand</strong></p>
+<p>Chemin vers le binaire tcpdump</p>
+</div></div>
+</div><div>
+<h2>Attributs de contrôle du runagent (agent de connexion)</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>hosts</strong></p>
+<p>Liste des machines ou adresses IP pour toute tentative de connexion</p>
+ <p><strong>port</strong></p>
+<p>Port par défaut pour le serveur cfengine</p>
+ <p><strong>force_ipv4</strong></p>
+<p>Indicateur true/false pour forcer l'utilisation de ipv4 pour se connecter</p>
+ <p><strong>trustkey</strong></p>
+<p>Indicateur true/false pour accepter toutes les clefs de confiance des serveurs distants</p>
+ <p><strong>encrypt</strong></p>
+<p>Indicateur true/false pour chiffrer les connexions vers les serveurs distants</p>
+ <p><strong>background_children</strong></p>
+<p>Indicateur true/false pour des connexions parallèles vers les serveurs distants</p>
+ <p><strong>max_children</strong></p>
+<p>Maximum de nombre de tentatives de connexion simultanées</p>
+ <p><strong>output_to_file</strong></p>
+<p>Indicateur true/false pour rediriger le flux de sortie vers un/des fichier(s)</p>
+ <p><strong>output_directory</strong></p>
+<p>Répertoire où stocker le flux de sortie</p>
+ <p><strong>timeout</strong></p>
+<p>Délai d'expiration en secondes</p>
+</div></div>
+</div><div>
+<h2>Attributs de contrôle de l'exécutant (executor)</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>splaytime</strong></p>
+<p>Temps d'évasement en minutes pour cette machine basé sur le hachage de son nom</p>
+ <p><strong>mailfrom</strong></p>
+<p>Adresse de messagerie pour désigner l'emetteur</p>
+ <p><strong>mailto</strong></p>
+<p>Adresse de messagerie pour désigner le destinataire</p>
+ <p><strong>smtpserver</strong></p>
+<p>Nom ou adresse du serveur smtp qui envoira des emails</p>
+ <p><strong>mailmaxlines</strong></p>
+<p>Maximum de nombre de lignes de sortie à envoyer par email</p>
+ <p><strong>schedule</strong></p>
+<p>La classe d'échéance utilisée par cf-execd pour activer cf-agent</p>
+ <p><strong>executorfacility</strong></p>
+<p>Option menu du niveau de facilité syslog</p>
+ <p><strong>exec_command</strong></p>
+<p>Le nom et chemin complet de la commande à exécuter par défaut (éliminant celle par défaut)</p>
+</div></div>
+</div><div>
+<h2>Attributs de contrôle pour la gestion de connaissances (cf-know)</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>build_directory</strong></p>
+<p>Le répertoire dans lequel seront générés les fichiers de sortie</p>
+ <p><strong>document_root</strong></p>
+<p>Le répertoire où réside la racine du serveur web</p>
+ <p><strong>generate_manual</strong></p>
+<p>Indicateur true/false pour générer la squelette de page manuel texinfo pour cette version</p>
+ <p><strong>graph_directory</strong></p>
+<p>Chemin du répertoire où seront créés les fichiers .png générés</p>
+ <p><strong>graph_output</strong></p>
+<p>Indicateur true/false pour générer si possible la visualisation de la carte des thèmes (requiert lib)</p>
+ <p><strong>html_banner</strong></p>
+<p>Le code HTML de la bannière à ajouter à l'html rendu après l'entête</p>
+ <p><strong>html_footer</strong></p>
+<p>Code HTML pour le bas de page à ajouter à l'html rendu avant la fin de la balise body</p>
+ <p><strong>id_prefix</strong></p>
+<p>Le préfixe identifiant LTM utilisé pour labelliser les cartes de thèmes (utilisé pour la résolution des ambiguités de fusion)</p>
+ <p><strong>manual_source_directory</strong></p>
+<p>Chemin de répertoire où trouver les textes bruts sur les thèmes de manuel (build_directory par défaut)</p>
+ <p><strong>query_engine</strong></p>
+<p>Nom de la page web dynamique utilisée pour accepter et lancer des requêtes dans le browser web</p>
+ <p><strong>query_output</strong></p>
+<p>Option menu pour le format de sortie générée</p>
+ <p><strong>sql_type</strong></p>
+<p>Option menu pour le type de bases de données supportées</p>
+ <p><strong>sql_database</strong></p>
+<p>Nom de la base de données utilisée pour la carte des thèmes</p>
+ <p><strong>sql_owner</strong></p>
+<p>Identifiant de l'utilisateur de la base de données SQL</p>
+ <p><strong>sql_passwd</strong></p>
+<p>Mot de passe d'accès à la base SQL</p>
+ <p><strong>sql_server</strong></p>
+<p>Nom et IP de serveur de base de données (ou localhost par défaut)</p>
+ <p><strong>sql_connection_db</strong></p>
+<p>Le nom d'une base de donnée existante pour se connecter et créer/gérer d'autres bases de données</p>
+ <p><strong>style_sheet</strong></p>
+<p>Nom de la feuille de style utilisée pour le rendu du HTML de sortie (ajoutée aux entêtes)</p>
+ <p><strong>view_projections</strong></p>
+<p>Effectue les analyses de projection des vues pendant la génération des graphiques</p>
+</div></div>
+</div><div>
+<h2>Attributs de contrôle pour le rapporteur (reporter)</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>aggregation_point</strong></p>
+<p>Répertoire racine du cache de données pour l'agrégation CMDB</p>
+ <p><strong>auto_scaling</strong></p>
+<p>Indicateur true/false pour ajuster la taille du graphique de sortie et optimiser l'utilisation d'espace</p>
+ <p><strong>build_directory</strong></p>
+<p>Le répertoire où générer les fichiers de sortie</p>
+ <p><strong>csv2xml</strong></p>
+<p>Une liste de fichiers au format CSV dans le répertoire de build à convertir en simple XML</p>
+ <p><strong>error_bars</strong></p>
+<p>Indicateur true/false pour générer les barres d'erreur dans le graphique de sortie</p>
+ <p><strong>html_banner</strong></p>
+<p>Bannière de code HTML à ajouter à l'HTML rendu et placer après l'entête</p>
+ <p><strong>html_embed</strong></p>
+<p>Indicateur true/false pour indiquer qu'aucune entête ou bas de page ne doivent être ajoutés à la sortie HTML</p>
+ <p><strong>html_footer</strong></p>
+<p>Code HTML de bas de page à ajouter à l'HTML rendu et placer avant la balise de fin de body</p>
+ <p><strong>query_engine</strong></p>
+<p>Nom de la page web dynamique utilisée pour accepter et lancer les requêtes dans le browser web</p>
+ <p><strong>reports</strong></p>
+<p>Une liste de rapports qui peuvent être générés</p>
+ <p><strong>report_output</strong></p>
+<p>Option de menu pour le format de sortie généré. Appliqué seulement aux rapports texte, les graphiques sont au format xydy</p>
+ <p><strong>style_sheet</strong></p>
+<p>Nom de la feuille de style à utiliser pour le rendu de la sortie HTML (ajouté aux entêtes)</p>
+ <p><strong>time_stamps</strong></p>
+<p>Indicateur true/false pour générer un horodatage dans le nom de répertoire de sortie</p>
+</div></div>
+</div><div>
+<h2>Attributs de contrôle de la passerelle (ou hub)</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>export_zenoss</strong></p>
+<p>Génerer un rapport d'intégration Zenoss</p>
+ <p><strong>exclude_hosts</strong></p>
+<p>Liste des IPs de machines à exclure de la collection de rapport</p>
+ <p><strong>hub_schedule</strong></p>
+<p>La classe d'échéance utilisée par cf-hub pour la collation de rapport</p>
+ <p><strong>port</strong></p>
+<p>Port par défaut de contact des noeuds de hub</p>
+</div></div>
+</div><div>
+<h2>Attributs de contrôle des fichiers de politique individuels ("body file control")</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>namespace</strong></p>
+<p>Passer à un espace de noms privé pour protéger le fichier en cours des définitions dupliquées</p>
+
+</div></div>
+</div><div>
+<h2>Attributs des promesses de type classes - peut apparaître dans tout type de bundle</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>and</strong></p>
+<p>Combine les classes sources avec ET</p>
+ <p><strong>dist</strong></p>
+<p>Générer une distribution de classe probabilistique (tirée des startégies dans cfengine 2)</p>
+ <p><strong>expression</strong></p>
+<p>Evaluer une chaîne d'expression de classes en format normal</p>
+ <p><strong>or</strong></p>
+<p>Combine les classes sources avec un OU inclusif</p>
+ <p><strong>persistence</strong></p>
+<p>Rendre la classe persistante (dans un cache) pour éviter la réévaluation, exprimé en minutes</p>
+ <p><strong>not</strong></p>
+<p>Evaluer la négation d'une chaîne d'expression de classes en format normal</p>
+ <p><strong>select_class</strong></p>
+<p>Choisir une des listes nommées contenant des classes à définir à partir de l'identité de machine</p>
+ <p><strong>xor</strong></p>
+<p>Combine les classes sources avec un OU exclusif</p>
+</div></div>
+</div><div>
+<h2>Attributs des promesses de type defaults - peut apparaître dans tout type de bundle</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>if_match_regex</strong></p>
+<p>Si cette expression régulière corresponde à la valeur courante de la variable, remplacer la avec la valeur par défaut</p>
+ <p><strong>string</strong></p>
+<p>Scalaire de chaîne</p>
+ <p><strong>slist</strong></p>
+<p>Liste de scalaires de chaînes</p>
+</div></div>
+</div><div>
+<h2>Attributs des promesses de type meta - peut apparaître dans tout type de bundle</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>string</strong></p>
+<p>Scalaire de chaîne</p>
+ <p><strong>slist</strong></p>
+<p>Liste de scalaire de chaînes</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type reports - peut apparaître dans tout type de bundle</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>friend_pattern</strong></p>
+<p>Une expression régulière pour éloigner les machines choisies de la liste des rapports amis</p>
+ <p><strong>intermittency</strong></p>
+<p>Nombre réel de seuil [0,1] d'intermittence des pairs courants, afficher en haut</p>
+ <p><strong>lastseen</strong></p>
+<p>Entier de la durée en heures du seuil depuis lequel les pairs en cours ont été constatés, afficher l'absence</p>
+ <p><strong>printfile</strong></p>
+<p>Chemin et nom du fichier vers lequel sera redirigé la sortie standard</p>
+ <p><strong>printfile</strong></p>
+<p>Entier du nombre maximal de lignes à afficher du fichier choisi</p>
+ <p><strong>report_to_file</strong></p>
+<p>Le chemin et nom de fichier à la fin duquel la sortie va être ajoutée</p>
+ <p><strong>showstate</strong></p>
+<p>Liste des services dont les rapports de statut devront être redirigés vers la sortie standard</p>
+</div></div>
+</div><div>
+<h2>Attributs des promesses de type vars - peut apparaître dans tout type de bundle</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>string</strong></p>
+<p>Sclaire de chaîne</p>
+ <p><strong>int</strong></p>
+<p>Scalaire d'un entier</p>
+ <p><strong>real</strong></p>
+<p>Scalaire de nombre réel</p>
+ <p><strong>slist</strong></p>
+<p>Liste de scalaires de chaîne</p>
+ <p><strong>ilist</strong></p>
+<p>Une liste d'entiers</p>
+ <p><strong>rlist</strong></p>
+<p>Liste de nombres réels</p>
+ <p><strong>policy</strong></p>
+<p>La politique pour permettre/refuser la (re-)définition des variables</p>
+</div></div>
+</div><div>
+<h2>Attributs de tout promesse dans n'importe quel type de bundle</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>action action_policy</strong></p>
+<p>S'il faut réparer ou tracer une promesse non tenue</p>
+ <p><strong>action audit</strong></p>
+<p>Indicateur true/false pour tracer en détail les rapports de cette promesse</p>
+ <p><strong>action background</strong></p>
+<p>Indicateur true/false pour paralléliser la réparation de cette promesse</p>
+ <p><strong>action expireafter</strong></p>
+<p>Nombre de minutes avant qu'une action de réparation soit interrompue et relancée</p>
+ <p><strong>action ifelapsed</strong></p>
+<p>Nombre de minutes avant la prochaine permission d'évaluation d'une promesse</p>
+ <p><strong>action logstring</strong></p>
+<p>Un message à tracer si une vérification de promesse mène à une réparation</p>
+ <p><strong>action log_level</strong></p>
+<p>Le niveau de trace envoyé à syslog</p>
+ <p><strong>action log_kept</strong></p>
+<p>Nom de fichier vers lequel log_string va être sauvegardée. Si non défini, tracer vers les logs système</p>
+ <p><strong>action log_priority</strong></p>
+<p>Niveau de priorité d'un message de trace comme interprété par un serveur syslog</p>
+ <p><strong>action log_repaired</strong></p>
+<p>Nom de fichier vers lequel log_repaired va être sauvegardée, si non défini tracer vers les logs système</p>
+ <p><strong>action log_failed</strong></p>
+<p>Nom de fichier vers lequel log_failed va être sauvegardée, si non défini tracer vers les logs système</p>
+ <p><strong>action measurement_class</strong></p>
+<p>Indicateur pour mesurer et enregistrer la performance sous cet identifiant</p>
+ <p><strong>action report_level</strong></p>
+<p>Le niveau de trace vers la sortie standard pour cette promesse</p>
+ <p><strong>action value_kept</strong></p>
+<p>Valeur en nombre réel attribuée pour tenir cette promesse</p>
+ <p><strong>action value_repaired</strong></p>
+<p>Valeur en nombre réel attribuée pour réparer cette promesse</p>
+ <p><strong>action value_notkept</strong></p>
+<p>Valeur en nombre réel (peut être négative) attribuée pour ne pas tenir cette promesse</p>
+ <p><strong>classes promise_repaired</strong></p>
+<p>Une liste de classes à définir globalement</p>
+ <p><strong>classes repair_failed</strong></p>
+<p>Une liste de classes à définir globalement</p>
+ <p><strong>classes repair_denied</strong></p>
+<p>Une liste de classes à définir globalement</p>
+ <p><strong>classes repair_timeout</strong></p>
+<p>Une liste de classes à définir globalement</p>
+ <p><strong>classes promise_kept</strong></p>
+<p>Une liste de classes à définir globalement</p>
+ <p><strong>classes cancel_kept</strong></p>
+<p>Une liste de classes à annuler  si la promesse est tenue</p>
+ <p><strong>classes cancel_repaired</strong></p>
+<p>Une liste de classes à annuler  si la promesse est réparée</p>
+ <p><strong>classes cancel_notkept</strong></p>
+<p>Une liste de classes à annuler  si la promesse n'est pas tenue pour une raison ou une autre</p>
+ <p><strong>classes kept_returncodes</strong></p>
+<p>Une liste de codes retour indiquant une promesse tenue de type commands</p>
+ <p><strong>classes repaired_returncodes</strong></p>
+<p>Une liste de codes retour indiquant une promesse réparée de type commands</p>
+ <p><strong>classes failed_returncodes</strong></p>
+<p>Une liste de codes retour indiquant une promesse échouée de type commands</p>
+ <p><strong>classes persist_time</strong></p>
+<p>Nombre de minutes pendant lesquelles les classes spécifiées doivent rester actives</p>
+ <p><strong>classes timer_policy</strong></p>
+<p>Si une classe persistante doit ré-initialiser son compteur quand elle est redécouverte</p>
+ <p><strong>comment</strong></p>
+<p>Un commentaire à propos des intentions de la promesse qui suit</p>
+ <p><strong>depends_on</strong></p>
+<p>Une liste des descripteurs de promesses que cette promesse construise ou en dépend (pour la gestion des connaissances)</p>
+ <p><strong>handle</strong></p>
+<p>Une chaîne d'identifiant-balise unique pour indiquer un receveur de promesse ailleurs</p>
+ <p><strong>ifvarclass</strong></p>
+<p>Classes étendues ANDées (combinés avec l'opérateur ET) avec un contexte</p>
+ <p><strong>meta</strong></p>
+<p>Donnée utilisateur associée à une politique, e.g des chaînes de type clé=valeur</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type commands dans les bundles agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>args</strong></p>
+<p>Chaîne de caractètes alternative représentant des arguments de commande à concaténer</p>
+ <p><strong>contain useshell</strong></p>
+<p>Indicateur true/false pour appeler la commande dans un shell d'environnement</p>
+ <p><strong>contain umask</strong></p>
+<p>La valeur umask pour le processus fils</p>
+ <p><strong>contain exec_owner</strong></p>
+<p>Le nom ou identifiant d'utilisateur sous lequel le processus est exécuté</p>
+ <p><strong>contain exec_group</strong></p>
+<p>Le nom ou identifiant de groupe sous lequel le processus est exécuté</p>
+ <p><strong>contain exec_timeout</strong></p>
+<p>Délai d'expiration en secondes pour l'arrêt d'exécution de la commande</p>
+ <p><strong>contain chdir</strong></p>
+<p>Répertoire pour attribuer le répertoire courant ou de base au processus</p>
+ <p><strong>contain chroot</strong></p>
+<p>Répertoire du bac à sable (sandbox) racine pour le processus exécuté</p>
+ <p><strong>contain preview</strong></p>
+<p>Indicateur true/false pour lancer la commande d'aperçu en mode dry-run (marche à vide) (avec option -n)</p>
+ <p><strong>contain no_output</strong></p>
+<p>Indicateur true/false pour ignorer toute sortie de commande</p>
+ <p><strong>module</strong></p>
+<p>Indicateur true/false pour s'attendre au protocole du module cfengine</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type databases dans les bundles agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>database_server db_server_owner</strong></p>
+<p>Nom d'utilisateur pour la connexion à la base de données</p>
+ <p><strong>database_server db_server_password</strong></p>
+<p>Vider le mot de passe pour la connexion à la base de données</p>
+ <p><strong>database_server db_server_host</strong></p>
+<p>Machine ou adresse pour la connexion à la base de données, localhost si vide</p>
+ <p><strong>database_server db_server_type</strong></p>
+<p>Le dialecte du serveur de base de données</p>
+ <p><strong>database_server db_server_connection_db</strong></p>
+<p>Le nom d'une base de données existante et utilisée pour créer/gérer d'autres bases de données</p>
+ <p><strong>database_type</strong></p>
+<p>Le type de base de données à manipuler</p>
+ <p><strong>database_operation</strong></p>
+<p>La nature de la promesse - être ou ne pas être</p>
+ <p><strong>database_columns</strong></p>
+<p>Liste de définitions de colonnes promises par la base de données SQL</p>
+ <p><strong>database_rows</strong></p>
+<p>Liste ordonnée des valeurs de lignes promises par la base de données SQL</p>
+ <p><strong>registry_exclude</strong></p>
+<p>Liste d'expressions régulières à ignorer pendant la vérification clé/valeur</p>
+
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type guest_environments dans les bundles agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>environment_host</strong></p>
+<p>Une classe indiquant le noeud physique exécutant la machine d'acceuil</p>
+ <p><strong>environment_interface env_addresses</strong></p>
+<p>Adresses IP des interfaces réseau de l'environnement virtuel</p>
+ <p><strong>environment_interface env_name</strong></p>
+<p>Nome de machine de l'environnement virtuel</p>
+ <p><strong>environment_interface env_network</strong></p>
+<p>Interface réseau de l'environnement virtuel</p>
+ <p><strong>environment_resources env_cpus</strong></p>
+<p>Nombre de processeurs de l'environnement virtuel</p>
+ <p><strong>environment_resources env_memory</strong></p>
+<p>Taille de stockage primaire (RAM) de l'environement virtuel (Mo)</p>
+ <p><strong>environment_resources env_disk</strong></p>
+<p>Taille de stockage secondaire (disque) de l'environement virtuel (Mo)</p>
+ <p><strong>environment_resources env_baseline</strong></p>
+<p>Le chemin vers une image avec laquelle il faut jalonner l'environnement virtuel</p>
+ <p><strong>environment_resources env_spec</strong></p>
+<p>Une chaîne contenant un groupe de promesses de technologie spécifique à l'instance virtuelle</p>
+ <p><strong>environment_state</strong></p>
+<p>Etat dynamique désiré de l'environnement en question</p>
+ <p><strong>environment_type</strong></p>
+<p>Type d'environnement virtuel</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type files dans les bundles agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>acl aces</strong></p>
+<p>Réglages natifs pour l'entrée de contrôle des accès</p>
+ <p><strong>acl acl_directory_inherit</strong></p>
+<p>Type de la liste des contrôles d'accès pour le système de fichiers en question</p>
+ <p><strong>acl acl_method</strong></p>
+<p>Méthode d'édition de la liste de contrôle des accès</p>
+ <p><strong>acl acl_type</strong></p>
+<p>Type de la liste des contrôles d'accès pour le système de fichiers en question</p>
+ <p><strong>acl specify_inherit_aces</strong></p>
+<p>Réglages natifs pour l'entrée de contrôle des accès</p>
+ <p><strong>changes hash</strong></p>
+<p>Fichiers de hachage destinés à la détection de changement</p>
+ <p><strong>changes report_change</strong></p>
+<p>Spécifier le critère de changement d'alertes</p>
+ <p><strong>changes update_hashes</strong></p>
+<p>Mettre à jour les valeurs de hachage immédiatement après le changement d'alertes</p>
+ <p><strong>changes report_diffs</strong></p>
+<p>Générer des rapports de sommaire des différences majeurs entre les différents fichiers de texte</p>
+ <p><strong>copy_from source</strong></p>
+<p>fichier de source de référence depuis lequel il faut copier</p>
+ <p><strong>copy_from servers</strong></p>
+<p>Liste des serveurs en ordre de préférence depuis lesquels il faut copier</p>
+ <p><strong>copy_from collapse_destination_dir</strong></p>
+<p>Indicateur true/false pour placer des fichiers dans des sous-répertoires du répertoire de la destination principale durant l'opération de copie</p>
+ <p><strong>copy_from compare</strong></p>
+<p>Choix de l'option de politique pour la comparaison entre les attributs du fichier source et du fichier image</p>
+ <p><strong>copy_from copy_backup</strong></p>
+<p>Choix de l'option de politique de contrôle de sauvegarde/version de fichiers</p>
+ <p><strong>copy_from encrypt</strong></p>
+<p>Indicateur true/false pour chiffrer le flux de données à destination de la machine distante</p>
+ <p><strong>copy_from check_root</strong></p>
+<p>Indicateur true/false pour vérifier les permissions du répertoire racine durant le depth_search (recherche en profondeur)</p>
+ <p><strong>copy_from copylink_pattern</strong></p>
+<p>Liste des schémas correspondant aux fichiers qui doivent être copiés au lieu d'êtres liés</p>
+ <p><strong>copy_from copy_size</strong></p>
+<p>Entier de l'intervalle de tailles de fichiers à copier</p>
+ <p><strong>copy_from findertype</strong></p>
+<p>Choix d'option pour le type de recherche par défaut sur MacOSX</p>
+ <p><strong>copy_from linkcopy_patterns</strong></p>
+<p>Liste des schémas correspodant aux fichiers qui doivent être remplacés par des liens symboliques</p>
+ <p><strong>copy_from link_type</strong></p>
+<p>Choix d'option pour le type de liens à utiliser pendant l'opération de copie</p>
+ <p><strong>copy_from force_update</strong></p>
+<p>Indicateur true/false pour exiger toujours la mise-à-jour des copies</p>
+ <p><strong>copy_from force_ipv4</strong></p>
+<p>Indicateur true/false pour forcer l'utilisation de ipv4 sur des réseaux ipv6</p>
+ <p><strong>copy_from portnumber</strong></p>
+<p>Numéro de port de connexion vers le serveur distant</p>
+ <p><strong>copy_from preserve</strong></p>
+<p>Indicateur true/false pour la préservation des permissions de fichiers copiés</p>
+ <p><strong>copy_from purge</strong></p>
+<p>Indicateur true/false pour la purge des fichiers sur le client qui ne correspondent pas à des fichiers sur le serveur au cours d'une opération depth_search (recherche profonde)</p>
+ <p><strong>copy_from stealth</strong></p>
+<p>Indicateur true/false pour préserver l'horodatage (time stamps) des fichiers copiés</p>
+ <p><strong>copy_from timeout</strong></p>
+<p>Délai de connexion en secondes</p>
+ <p><strong>copy_from trustkey</strong></p>
+<p>Indicateur true/false pour autoriser des clefs publiques depuis un serveur distant inconnu pour l'instant</p>
+ <p><strong>copy_from type_check</strong></p>
+<p>Indicateur true/false pour comparer les types de fichier et exiger la correspondance avant l'opération de copie</p>
+ <p><strong>copy_from verify</strong></p>
+<p>Indicateur true/false pour vérifier le fichier à transférer en hachant après la copie (pénalité de ressource)</p>
+ <p><strong>create</strong></p>
+<p>Indicateur true/false pour créer un fichier inexistant</p>
+ <p><strong>delete dirlinks</strong></p>
+<p>Option de choix de la politique de gestion des liens symboliques vers des répertoires durant l'opération de suppression</p>
+ <p><strong>delete rmdirs</strong></p>
+<p>Indicateur true/false pour supprimer les répertoires vides pendant la suppression récursive</p>
+ <p><strong>depth_search depth</strong></p>
+<p>Niveau de profondeur maximale de recherche</p>
+ <p><strong>depth_search exclude_dirs</strong></p>
+<p>Liste des expressions régulières des noms de répertoires à exclure pendant la recherche en profondeur</p>
+ <p><strong>depth_search include_basedir</strong></p>
+<p>Indicateur true/false pour inclure le répertoire de début/racine durant la recherche de résultats</p>
+ <p><strong>depth_search include_dirs</strong></p>
+<p>Liste des expressions régulières de noms de répertoires à inclure pendant la recherche en profondeur</p>
+ <p><strong>depth_search rmdeadlinks</strong></p>
+<p>Indicateur true/false pour supprimer les liens orphelins</p>
+ <p><strong>depth_search traverse_links</strong></p>
+<p>Indicateur true/false pour traverser les liens symboliques vers des répertoires</p>
+ <p><strong>depth_search xdev</strong></p>
+<p>Indicateur true/false pour exclure les répertoires qui sont sur des appareils différents</p>
+ <p><strong>edit_defaults edit_backup</strong></p>
+<p>Option de choix de la politique de sauvegarde pendant l'édition des changements</p>
+ <p><strong>edit_defaults empty_file_before_editing</strong></p>
+<p>Modèle de mémoire de base pour le fichier à tronquer avant le début des modifications promises</p>
+ <p><strong>edit_defaults inherit</strong></p>
+<p>Si true, le sous-bundle héritera des classes privées de son parent</p>
+ <p><strong>edit_defaults max_file_size</strong></p>
+<p>Ne pas éditer des fichiers plus volumineux que cette taille en nombre d'octets</p>
+ <p><strong>edit_defaults recognize_join</strong></p>
+<p>Joindre les lignes qui finissent par un antislash, jusqu'à une limite de 4Ko</p>
+ <p><strong>edit_defaults rotate</strong></p>
+<p>Combien de sauvegardes à stocker si la politique de rotation edit_backup est choisie. Valeur par défaut est 1.</p>
+ <p><strong>edit_line</strong></p>
+<p>Spécifier le nom du bundle edit_line</p>
+ <p><strong>edit_template</strong></p>
+<p>Le nom d'un modèle de fichier CFEngine spécial à étendre</p>
+ <p><strong>edit_xml</strong></p>
+<p>Spécifier le nom du bundle edit_xml</p>
+ <p><strong>file_select leaf_name</strong></p>
+<p>Liste des expressions régulières qui correspondent à un nom autorisé</p>
+ <p><strong>file_select path_name</strong></p>
+<p>Liste de noms de chemin qui correspondent à une cible autorisée</p>
+ <p><strong>file_select search_mode</strong></p>
+<p>Une liste de masques de mode pour les permissions de fichier acceptables</p>
+ <p><strong>file_select search_size</strong></p>
+<p>Entier d'intervalle de taille du fichier</p>
+ <p><strong>file_select search_owners</strong></p>
+<p>Liste des noms et identifiants d'utilisateurs acceptables pour un fichier, ou des expressions régulières correspondantes</p>
+ <p><strong>file_select search_groups</strong></p>
+<p>Liste des noms et identifiants de groupes acceptables pour un fichier, ou des expressions régulières correspondantes</p>
+ <p><strong>file_select search_bsdflags</strong></p>
+<p>Chaîne de caractère des indicateurs de système de fichiers BSD attendus</p>
+ <p><strong>file_select ctime</strong></p>
+<p>Intervalle des temps de changement (ctime) des fichiers acceptés</p>
+ <p><strong>file_select mtime</strong></p>
+<p>Intervalle des temps de modification (mtime) des fichiers acceptés</p>
+ <p><strong>file_select atime</strong></p>
+<p>Intervalle des temps d'accès (atime) des fichiers acceptés</p>
+ <p><strong>file_select exec_regex</strong></p>
+<p>Retourne le fichiers si cette expression régulière corresponde à n'importe quelle ligne entière retournée par la commande</p>
+ <p><strong>file_select exec_program</strong></p>
+<p>Exécuter cette commande pour chaque fichier et accepter si le code retour est zéro</p>
+ <p><strong>file_select file_types</strong></p>
+<p>Liste des types de fichier acceptés dans le menu des choix</p>
+ <p><strong>file_select issymlinkto</strong></p>
+<p>Liste des expressions régulières qui correspondent à des objets de fichier</p>
+ <p><strong>file_select file_result</strong></p>
+<p>Expression logique combinant les classes définies par des critères de recherche de fichier</p>
+ <p><strong>link_from copy_patterns</strong></p>
+<p>Ensemble de schémas qui doivent être copiés et synchronisés au lieu d'être liés</p>
+ <p><strong>link_from link_children</strong></p>
+<p>Indicateur true/false pour lier tous les sous-répertoires à leurs originaux en source</p>
+ <p><strong>link_from link_type</strong></p>
+<p>Le type de lien utilisé comme un alias du fichier</p>
+ <p><strong>link_from source</strong></p>
+<p>Le fichier source vers lequel doit pointer le lien</p>
+ <p><strong>link_from when_linking_children</strong></p>
+<p>Politique pour écraser les fichiers existants quand il faut lier des sous-répertoires</p>
+ <p><strong>link_from when_no_source</strong></p>
+<p>Comportement à suivre quand le fichier source à lier est absent</p>
+ <p><strong>move_obstructions</strong></p>
+<p>Indicateur true/false pour déplacer les obstructions vers des créations de fichiers objet</p>
+ <p><strong>pathtype</strong></p>
+<p>Option de choix pour l'interprétation du fichier objet du celui qui promet</p>
+ <p><strong>perms bsdflags</strong></p>
+<p>Liste des options pour le choix des indicateurs du système de fichiers BSD</p>
+ <p><strong>perms groups</strong></p>
+<p>Liste des groupes de groupes d'identifiants acceptables, first pour le changement de cible</p>
+ <p><strong>perms mode</strong></p>
+<p>Permissions de fichiers (à la chmod POSIX)</p>
+ <p><strong>perms owners</strong></p>
+<p>Liste des identifiants de détenteurs ou utilisateurs acceptables, first pour le changement de cible</p>
+ <p><strong>perms rxdirs</strong></p>
+<p>Indicateur true/false pour ajouter l'indicateur d'exécution pour les répertoires si l'indicateur est choisi</p>
+ <p><strong>rename disable</strong></p>
+<p>Indicateur true/false pour renommer ou ôter les permissions automatiquement</p>
+ <p><strong>rename disable_mode</strong></p>
+<p>Les permissions à donner si le fichier est désactivé</p>
+ <p><strong>rename disable_suffix</strong></p>
+<p>Le suffixe à ajouter aux fichiers pendant la désactivation (.cfdisabled)</p>
+ <p><strong>rename newname</strong></p>
+<p>Le nom souhaité pour le fichier courant</p>
+ <p><strong>rename rotate</strong></p>
+<p>Le nombre maximal de rotations de fichier à préserver</p>
+ <p><strong>repository</strong></p>
+<p>Nom du dépôt de gestion des versions</p>
+ <p><strong>touch</strong></p>
+<p>Indicateur true/false pour retoucher les horodatages (time stamps) du fichier</p>
+ <p><strong>transformer</strong></p>
+<p>Commande (avec chemin complet) à utiliser pour transformer le fichier courant (aucun shell n'est utilisé)</p>
+
+</div></div>
+</div><div>
+<h2>Différents attributs du type de promesse edit_line</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>select_region include_start_delimiter</strong></p>
+<p>S'il faut inclure le séparateur de section de début</p>
+ <p><strong>select_region include_end_delimiter</strong></p>
+<p>S'il faut inclure le séparateur de section de fin</p>
+ <p><strong>select_region select_start</strong></p>
+<p>Expression régulière correspondant au début de la région éditée</p>
+ <p><strong>select_region select_end</strong></p>
+<p>Expression régulière correspondant à la fin de la région éditée</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type delete_lines dans edit_line</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>delete_select delete_if_startwith_from_list</strong></p>
+<p>Supprimer la ligne si elle commence par une chaîne dans cette liste</p>
+ <p><strong>delete_select delete_if_not_startwith_from_list</strong></p>
+<p>Supprimer la ligne si elle ne commence pas par une chaîne dans cette liste</p>
+ <p><strong>delete_select delete_if_match_from_list</strong></p>
+<p>Supprimer la ligne si elle correspond à une expression régulière dans cette liste</p>
+ <p><strong>delete_select delete_if_not_match_from_list</strong></p>
+<p>Supprime la ligne si elle ne correspond pas à une expression régulière dans cette liste</p>
+ <p><strong>delete_select delete_if_contains_from_list</strong></p>
+<p>Supprime la ligne si une de ses sections correspond à une expression régulière dans cette liste</p>
+ <p><strong>delete_select delete_if_not_contains_from_list</strong></p>
+<p>Supprime la ligne si aucune section d'elle ne correspond à une expression régulière dans cette liste</p>
+ <p><strong>not_matching</strong></p>
+<p>Indicateur true/false pour la négation d'un critère de correspondance</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type insert_lines dans edit_line</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>expand_scalars</strong></p>
+<p>Etendre toute variable non-étendue</p>
+ <p><strong>insert_type</strong></p>
+<p>Type d'objet vers lequel le prometteur se réfère</p>
+ <p><strong>insert_select insert_if_startwith_from_list</strong></p>
+<p>Insérer une ligne si elle commence par une chaîne dans la liste</p>
+ <p><strong>insert_select insert_if_not_startwith_from_list</strong></p>
+<p>Insérer une ligne si elle ne commence pas par une chaîne dans la liste</p>
+ <p><strong>insert_select insert_if_match_from_list</strong></p>
+<p>Insérer une ligne si elle correspond à une expression régulière dans la liste</p>
+ <p><strong>insert_select insert_if_not_match_from_list</strong></p>
+<p>Insérer une ligne si elle ne correspond à aucune expression régulière dans la liste</p>
+ <p><strong>insert_select insert_if_contains_from_list</strong></p>
+<p>Insérer une ligne si une de ses sections correspond à une expression régulière dans la liste</p>
+ <p><strong>insert_select insert_if_not_contains_from_list</strong></p>
+<p>Insérer une ligne si aucune de ses sections ne correspond à une expression régulière dans la liste</p>
+ <p><strong>location before_after</strong></p>
+<p>Option menu, pointer le curseur avant ou après la ligne correspondante</p>
+ <p><strong>location first_last</strong></p>
+<p>Option menu, choisir entre la première ou la dernière occurrence d'une correspondance dans le fichier</p>
+ <p><strong>location select_line_matching</strong></p>
+<p>Expression régulière pour correspondre à un endroit de ligne dans le fichier</p>
+ <p><strong>whitespace_policy</strong></p>
+<p>Critère de correspondance et de reconnaissance de lignes existantes</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type field_edits dans edit_line</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>edit_field allow_blank_fields</strong></p>
+<p>Indicateur true/false pour permettre des champs vides dans une ligne (ne pas purger)</p>
+ <p><strong>edit_field extend_fields</strong></p>
+<p>Indicateur true/false pour ajouter des nouveaux champs à la fin d'une ligne pour compléter l'édition si nécessaire</p>
+ <p><strong>edit_field field_operation</strong></p>
+<p>Option menu pour la politique d'édition des sous-champs</p>
+ <p><strong>edit_field field_value</strong></p>
+<p>renseigner la valeur de champ avec une valeur fixe</p>
+ <p><strong>edit_field select_field</strong></p>
+<p>Entier d'un indice du champs requis 0..n (commence par défaut par 1)</p>
+ <p><strong>edit_field start_fields_from_zero</strong></p>
+<p>Si indiqué, les numéros de champ commenceront à partir de 0</p>
+ <p><strong>edit_field value_separator</strong></p>
+<p>Caractère agissant comme séparateur de sous-champs dans le champ choisi</p>
+
+</div></div>
+</div><div>
+<h2>Attributes of replace_patterns promises in edit_line</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>replace_with occurrences</strong></p>
+<p>Option de choix pour remplacer toutes les occurrences ou juste la première (note: la dernière n'est pas convergente)</p>
+ <p><strong>replace_with replace_value</strong></p>
+<p>Valeur utilisée pour remplacer les correspondances d'expression régulière pendant la recherche</p>
+</div></div>
+</div><div>
+<h2>Différents attributs de promesse de type edit_xml</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>build_xpath</strong></p>
+<p>Construire un XPath dans un fichier XML</p>
+ <p><strong>select_xpath</strong></p>
+<p>Choisir le noeud XPath à éditer dans un fichier XML</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type set_attributes dans edit_xml</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>attribute_value</strong></p>
+<p>Valeur de l'attribut à insérer dans un noeud XPath dans un fichier XML</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type interfaces dans un bundle agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>tcp_ip ipv4_address</strong></p>
+<p>Adresse IPv4 d'une interface</p>
+ <p><strong>tcp_ip ipv4_netmask</strong></p>
+<p>Masque réseau d'une interface</p>
+ <p><strong>tcp_ip ipv6_address</strong></p>
+<p>Adresse IPv6 d'une interface</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type methods dans un bundle agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>inherit</strong></p>
+<p>Si vrai le sous-bundle va hériter des classes privées de son père</p>
+ <p><strong>usebundle</strong></p>
+<p>Le nom d'une variable locale qui contient le résultat ou code retourné par un fils</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type outputs dans le bundle agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>output_level</strong></p>
+<p>Niveau de sortie à observer pour une promesse nommée ou bundle (méta-promesse)</p>
+ <p><strong>promiser_type</strong></p>
+<p>Niveau de sortie à observer pour une promesse nommée ou bundle (méta-promesse)</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type packages dans le bundle agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>package_architectures</strong></p>
+<p>Choisir l'architecture de sélection de paquets</p>
+ <p><strong>package_method package_add_command</strong></p>
+<p>Commande d'installation d'un paquet dans le système</p>
+ <p><strong>package_method package_arch_regex</strong></p>
+<p>Expression régulière avec des références inverses pour extraire la chaîne de l'architecture des paquets</p>
+ <p><strong>package_method package_changes</strong></p>
+<p>Option menu pour grouper les paquets au sein d'une seule commande agrégée</p>
+ <p><strong>package_method package_delete_command</strong></p>
+<p>Commande pour supprimer un paquet du système</p>
+ <p><strong>package_method package_delete_convention</strong></p>
+<p>La façon avec laquelle le gestionnaire de paquets attende que le paquet soit référencé dans la partie de suppression d'une mise à jour de paquet, e.g. $(name)</p>
+ <p><strong>package_method package_file_repositories</strong></p>
+<p>Une liste de machines-répertoires locaux pour la recherche de paquets</p>
+ <p><strong>package_method package_installed_regex</strong></p>
+<p>Expression régulière correspondant aux paquets déja installés</p>
+ <p><strong>package_method package_default_arch_command</strong></p>
+<p>Commande pour détecter l'architecture de paquets par défaut</p>
+ <p><strong>package_method package_list_arch_regex</strong></p>
+<p>Expression régulière avec une référence inverse pour l'extraction</p>
+ <p><strong>package_method package_list_command</strong></p>
+<p>Commande pour obtenir la liste des paquets disponibles</p>
+ <p><strong>package_method package_list_name_regex</strong></p>
+<p>Expression régulière avec une référence inverse pour l'extraction du nom de paquet</p>
+ <p><strong>package_method package_list_update_command</strong></p>
+<p>Commande pour la mise à jour de la liste des paquets disponibles (si présente)</p>
+ <p><strong>package_method package_list_update_ifelapsed</strong></p>
+<p>Le temps de verrouillage ifelapsed entre les mises à jour de la liste des paquets</p>
+ <p><strong>package_method package_list_version_regex</strong></p>
+<p>Expression régulière avec une référence inverse pour l'extraction de la version des paquets</p>
+ <p><strong>package_method package_name_convention</strong></p>
+<p>La façon avec laquelle le gestionnaire de paquets attende que le paquet soit référencé, e.g. $(name).$(arch)</p>
+ <p><strong>package_method package_name_regex</strong></p>
+<p>Expression régulière avec une référence inverse pour l'extraction du nom des paquet</p>
+ <p><strong>package_method package_noverify_regex</strong></p>
+<p>Expression régulière correspondant à la vérification de la sortie en erreur</p>
+ <p><strong>package_method package_noverify_returncode</strong></p>
+<p>Entier du code retour indiquant l'échec de vérification des paquets</p>
+ <p><strong>package_method package_patch_arch_regex</strong></p>
+<p>Expression régulière avec une référence inverse pour l'extraction de l'architecture de mise à jour</p>
+ <p><strong>package_method package_patch_command</strong></p>
+<p>Commande pour mettre à jour les derniers patchs d'un paquet déjà installé</p>
+ <p><strong>package_method package_patch_installed_regex</strong></p>
+<p>Expression régulière correspondant à des paquets déjà installés</p>
+ <p><strong>package_method package_patch_list_command</strong></p>
+<p>Commande pour obtenir la liste des patchs ou mises à jours disponibles</p>
+ <p><strong>package_method package_patch_name_regex</strong></p>
+<p>Expression régulière avec une référence inverse pour l'extraction de la mise à jour des noms de paquets</p>
+ <p><strong>package_method package_patch_version_regex</strong></p>
+<p>Expression régulière avec une référence inverse pour l'extraction de la version de mise à jour</p>
+ <p><strong>package_method package_update_command</strong></p>
+<p>Commande de mise à jour de la dernière version du paquet déja installé</p>
+ <p><strong>package_method package_verify_command</strong></p>
+<p>Commande de vérification de cohérence du paquet installé</p>
+ <p><strong>package_method package_version_regex</strong></p>
+<p>Expression régulière avec une référence inverse pour l'extraction de la version de paquet</p>
+ <p><strong>package_method package_multiline_start</strong></p>
+<p>Expression régulière correspondant au début d'un paquet dans une sortie multi-lignes</p>
+ <p><strong>package_method package_commands_useshell</strong></p>
+<p>Indique s'il faut utiliser le shell pour lancer des commandes dans cette section de corps (body)</p>
+ <p><strong>package_method package_version_less_command</strong></p>
+<p>Commande pour vérifier si la version du premier paquet renseigné est inférieure à celle du second</p>
+ <p><strong>package_method package_version_equal_command</strong></p>
+<p>Commande pour vérifier si la version du premier paquet renseigné est égale à celle du second</p>
+ <p><strong>package_policy</strong></p>
+<p>Critère d'installation ou mise à jour du paquet sur le système courant</p>
+ <p><strong>package_select</strong></p>
+<p>Critère pour la première correspondance acceptable et relative à "package_version"</p>
+ <p><strong>package_version</strong></p>
+<p>Version du point de référence pour déterminer la version promise</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type processes dans le bundle agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>process_count in_range_define</strong></p>
+<p>Liste des classes à définir si le résultat est dans l'intervalle</p>
+ <p><strong>process_count match_range</strong></p>
+<p>Entier d'intervalle des numéros permis pour ce processus</p>
+ <p><strong>process_count out_of_range_define</strong></p>
+<p>Liste des classes à définir si le résultat est en dehors de l'intervalle</p>
+ <p><strong>process_select command</strong></p>
+<p>Expression régulière correspondant au champ de commande/cmd d'un processus</p>
+ <p><strong>process_select pid</strong></p>
+<p>Intervalle d'entiers correspondant à l'identifiant d'un processus</p>
+ <p><strong>process_select pgid</strong></p>
+<p>Intervalle d'entiers correspondant à l'identifiant groupe d'un processus</p>
+ <p><strong>process_select ppid</strong></p>
+<p>Intervalle d'entiers correspondant à l'identifiant du parent d'un processus</p>
+ <p><strong>process_select priority</strong></p>
+<p>Intervalle d'entiers correspondant au champ de priorité (PRI/IN) d'un processus</p>
+ <p><strong>process_select process_owner</strong></p>
+<p>Liste des expressions régulières correspondant à l'utilisateur du processus</p>
+ <p><strong>process_select process_result</strong></p>
+<p>Expression booléenne retournant la combinaison logique des classes définies par un test de sélection de processus</p>
+ <p><strong>process_select rsize</strong></p>
+<p>Intervalle d'entiers correspondant à la taille mémoire résidente d'un processus en Ko</p>
+ <p><strong>process_select status</strong></p>
+<p>Expression régulière correspondant au champs de statut d'un processus</p>
+ <p><strong>process_select stime_range</strong></p>
+<p>Intervalle d'entiers correspondant à la date de début d'un processus</p>
+ <p><strong>process_select ttime_range</strong></p>
+<p>Intervalle d'entiers correspondant à la durée totale consommée d'un processus</p>
+ <p><strong>process_select tty</strong></p>
+<p>Expression régulière correspondant au champ tty d'un processus</p>
+ <p><strong>process_select threads</strong></p>
+<p>Intervalle d'entiers correspondant au champ de threads (NLWP) d'un processus</p>
+ <p><strong>process_select vsize</strong></p>
+<p>Intervalle d'entiers correspondant à la taille mémoire virtuelle d'un processus en Ko</p>
+ <p><strong>process_stop</strong></p>
+<p>Une commande utilisée pour arrêter un processus en cours d'exécution</p>
+ <p><strong>restart_class</strong></p>
+<p>Une classe à définir globalement si le processus est arrêté pour qu'une autre commande essairait de le redémarrer</p>
+ <p><strong>signals</strong></p>
+<p>Une liste d'options de menu représentant les signaux à envoyer au processus</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type services dans un bundle agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>service_policy</strong></p>
+<p>Politique pour le statut du service cfengine</p>
+ <p><strong>service_dependencies</strong></p>
+<p>Liste de services sur lesquels dépend l'abstraction du service nommé</p>
+ <p><strong>service_method service_args</strong></p>
+<p>Paramètres pour démarrer un service par une commande</p>
+ <p><strong>service_method service_autostart_policy</strong></p>
+<p>Indique si le service doit être démarré automatiquement par l'OS</p>
+ <p><strong>service_method service_bundle</strong></p>
+<p>Comment gérer les dépendances et les services dépendants</p>
+ <p><strong>service_method service_type</strong></p>
+<p>Type de service d'abstraction</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type storage dans un bundle agent</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>mount edit_fstab</strong></p>
+<p>Indicateur true/false pour ajouter/supprimer des entrées dans la table des systèmes de fichier (fstab)</p>
+ <p><strong>mount mount_type</strong></p>
+<p>Type de protocole du système de fichier distant</p>
+ <p><strong>mount mount_source</strong></p>
+<p>Chemin de montage du système de fichier distant</p>
+ <p><strong>mount mount_server</strong></p>
+<p>Nom ou adresse IP du serveur du système de fichier distant</p>
+ <p><strong>mount mount_options</strong></p>
+<p>Liste d'options à ajouter à la table des systèmes de fichier (fstab)</p>
+ <p><strong>mount unmount</strong></p>
+<p>Indicateur true/false pour démonter un système de fichier déjà monté</p>
+ <p><strong>volume check_foreign</strong></p>
+<p>Indicateur true/false pour vérifier la taille d'un système de fichier monté sur cette machine</p>
+ <p><strong>volume freespace</strong></p>
+<p>Espace disque minimal absolut ou en pourcentage qui doit être disponible avant d'alerter</p>
+ <p><strong>volume sensible_size</strong></p>
+<p>Espace minimal en octets qui doit être utilisé sur un équipement de stockage de données</p>
+ <p><strong>volume sensible_count</strong></p>
+<p>Nombre de fichiers minimal qui doit exister sur un équipement de stockage de données</p>
+ <p><strong>volume scan_arrivals</strong></p>
+<p>Indicateur true/false pour générer une distribution pseudo-périodique d'arrivée de changement de disque</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type access dans un bundle server</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>admit</strong></p>
+<p>Liste des machines ou adresses IP à autoriser l'accès vers des objets fichier</p>
+ <p><strong>deny</strong></p>
+<p>Liste des machines ou adresses IP à refuser l'accès vers des objets fichier</p>
+ <p><strong>maproot</strong></p>
+<p>Liste des machines ou adresses IP à autoriser l'accès en lecture sur le serveur</p>
+ <p><strong>ifencrypted</strong></p>
+<p>Indicateur true/false pour indiquer si l'accès du fichier courant à la promesse est conditionné par le chiffrement de la connexion depuis le client</p>
+ <p><strong>resource_type</strong></p>
+<p>Le type d'objet dont l'accès est autorisé (par défaut donner accès aux fichiers)</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type roles dans un bundle server</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>authorize</strong></p>
+<p>Liste des noms d'utilisateurs des clefs publiques qui sont autorisés à activer la classe promise durant l'activation de l'agent distant</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type inferences dans un bundle knowledge</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>precedents</strong></p>
+<p>Le vecteur fondateur de l'inférence trinaire</p>
+ <p><strong>qualifiers</strong></p>
+<p>Le second vecteur de l'inférence trinaire</p>
+</div></div>
+</div><div>
+<h2>Attributs de promesse de type things dans un bundle knowledge</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>synonyms</strong></p>
+<p>Une liste de mots devant être traités comme équivalents au sein du contexte défini</p>
+ <p><strong>affects</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>belongs_to</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>causes</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>certainty</strong></p>
+<p>Renseigne le niveau de certainté pour la connaissance proposée, pour utiliser dans le raisonnement inférentiel</p>
+ <p><strong>determines</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>generalizations</strong></p>
+<p>Une liste de mots devant être traités comme des super-groupes du thème courant, utilisé en cours de raisonnement</p>
+ <p><strong>implements</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>involves</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>is_caused_by</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>is_connected_to</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>is_determined_by</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>is_followed_by</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>is_implemented_by</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>is_located_in</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>is_measured_by</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>is_part_of</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>is_preceded_by</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>measures</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>needs</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>provides</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+ <p><strong>uses</strong></p>
+<p>Relation fixe spéciale pour décrire des thèmes de type choses ("things")</p>
+</div></div>
+</div><div>
+<h2>Attributs des promesses de type topics dans un bundle knowledge</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>association forward_relationship</strong></p>
+<p>Nom de l'association en avant entre le thème prometteur et associés</p>
+ <p><strong>association backward_relationship</strong></p>
+<p>Nom de l'association avant/inverse depuis les associés au thème prometteur</p>
+ <p><strong>association associates</strong></p>
+<p>Liste des thèmes associés par cette relation en avant</p>
+ <p><strong>synonyms</strong></p>
+<p>Liste des mots à traiter comme équivalents dans un contexte défini</p>
+ <p><strong>generalizations</strong></p>
+<p>Liste des mots à traiter comme des super-groupements pour le thème en cours</p>
+</div></div>
+</div><div>
+<h2>Attributs des promesses de type occurences dans un bundle knowledge</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>about_topics</strong></p>
+<p>Liste des thèmes adressés par un document ou une ressource</p>
+ <p><strong>represents</strong></p>
+<p>Liste des explications pour la relation que ce document entretient avec les thèmes dont il est le sujet</p>
+ <p><strong>representation</strong></p>
+<p>Comment interpréter une chaîne de prometteur e.g. donnée pure ou référence à une donnée</p>
+</div></div>
+</div><div>
+<h2>Attributs des promesses de type measurements dans un bundle knowledge</h2>
+<div><div>
+<table rules="all" frame="border"></table>
+<p><strong>stream_type</strong></p>
+<p>La donnée (datatype) collectée</p>
+ <p><strong>data_type</strong></p>
+<p>La donnée (datatype) en cours de collection</p>
+ <p><strong>history_type</strong></p>
+<p>Si la donnée peut être considérée comme une série-temps ou juste une valeur isolée</p>
+ <p><strong>units</strong></p>
+<p>Les dimensions architecturales de cette valeur ou une note à propos de l'intention utilisée dans son illustration</p>
+ <p><strong>match_value select_line_matching</strong></p>
+<p>Expression régulière correspondant à un endroit de ligne</p>
+ <p><strong>match_value select_line_number</strong></p>
+<p>Lire à partir de la nème ligne de sortie (format fixe)</p>
+ <p><strong>match_value extraction_regex</strong></p>
+<p>Expression régulière contenant une référence en arrière unique pour extraire une valeur</p>
+ <p><strong>match_value track_growing_file</strong></p>
+<p>Si indiqué, cfengine se souvient de la position à laquelle il a lu dernièrement quand il a ouvert le fichier, et il doit se placer au début si le fichier a été tronqué</p>
+ <p><strong>match_value select_multiline_policy</strong></p>
+<p>Expression régulière correspondant à un endroit de ligne</p>
+</div></div>
+</div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Syntaxe CFEngine 3.4.0 : Attributs des promesses maintained by <a href="https://github.com/jeffali">jeffali</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
